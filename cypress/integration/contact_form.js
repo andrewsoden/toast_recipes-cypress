@@ -24,7 +24,30 @@ describe('Toast Recipes submit Contact form', function() {
         cy.get(':nth-child(5) > .form-control')
         .type('Secret2019');
 
+        cy.get('textarea')
+        .type('Abcdefghijklmnopqrstuvwxyz $!.0123456789');
+
         cy.get('#submitButton')
         .click({force:true});
-    })
+    });
+
+    it('checks the Contact form is empty upon submission', function() {
+        cy.get(':nth-child(1) > .form-control')
+        .should('be.empty');
+
+        cy.get(':nth-child(2) > .form-control')
+        .should('be.empty');
+
+        cy.get(':nth-child(3) > .form-control')
+        .should('be.empty');
+
+        cy.get(':nth-child(4) > .form-control')
+        .should('be.empty');
+
+        cy.get(':nth-child(5) > .form-control')
+        .should('be.empty');
+
+        cy.get('textarea')
+        .should('be.empty');
+    });
 })
