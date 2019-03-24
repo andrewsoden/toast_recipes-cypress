@@ -10,7 +10,7 @@ describe('Toast Recipes basic page navigation', function() {
 
     it('visits the Contact page', function() {
         cy.get('#section_contact').click()
-        cy.get('h1').contains('Contact')
+        cy.get('h2').contains('Contact')
     })
 
     it('visits the Login page', function() {
